@@ -6,9 +6,10 @@ import ReactDOM from 'react-dom/client'
 import reportWebVitals from './reportWebVitals'
 // Import the generated route tree
 import '@/styles/index.css'
+import '@/styles/global.scss'
 import '@ant-design/v5-patch-for-react-19'
 import '~/locales/i18n'
-import { theme } from './config/theme'
+import { theme } from './config'
 import { routeTree } from './routeTree.gen'
 
 // Create a new router instance

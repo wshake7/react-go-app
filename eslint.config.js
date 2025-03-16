@@ -10,6 +10,7 @@ export default antfu({
   rules: {
     'prefer-template': 'off',
     'style/max-statements-per-line': 'off',
-    'eslint-comments/no-unlimited-disable': 'off'
+    'eslint-comments/no-unlimited-disable': 'off',
+    'unused-imports/no-unused-vars':'warn'
   },
 })

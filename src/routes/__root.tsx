@@ -1,19 +1,16 @@
-import NotFount from '@/layout/NotFount'
-import {
-  createRootRouteWithContext,
-  Outlet,
-  useNavigate,
-} from '@tanstack/react-router'
+import NotFount from '@/components/NotFount'
+import { createRootRouteWithContext, Outlet, useNavigate } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import { useCookieState, useMount } from 'ahooks'
 
-interface AuthState {
-  isAuthenticated: boolean
+const auth = {
+  isAuthenticated: false,
 }
 
-export interface RouterContext {
-  // The ReturnType of your useAuth hook or the value of your AuthContext
-  auth: AuthState
+type IAuth = typeof auth
+
+interface RouterContext {
+  auth: IAuth
 }
 
 export const Route = createRootRouteWithContext<RouterContext>()({
@@ -25,11 +22,11 @@ function Root() {
   const [token] = useCookieState('token')
   const navigate = useNavigate()
   useMount(() => {
-    // if (!token) {
-    //   navigate({
-    //     to: '/login',
-    //   })
-    // }
+    if (!token) {
+      navigate({
+        to: '/login',
+      })
+    }
   })
 
   return (
